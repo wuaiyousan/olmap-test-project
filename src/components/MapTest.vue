@@ -5,6 +5,7 @@
       class="map-container"
       :moduleId="toModule"
       :mapSearch="searchObj"
+      :isService=false
     ></whrd-map>
     <!-- buttons -->
     <div class="biz-panel">
@@ -206,7 +207,7 @@ export default {
     }
   },
   mounted() {
-    this.toModule = 'test';
+    this.toModule = 'swm-onemap-test';
     // this.toModule = 'swsu-problem-location';
     // this.toModule = 'swem-reservoir';
   },
@@ -616,14 +617,14 @@ export default {
 
     doSubscribe(message, callback) {
       // 订阅
-      this.$eventHub.$on(message, callback)
+      this.$mapEventHub.$on(message, callback)
       // 取消订阅 - 回收处理
       this.$once('hook:beforeDestroy', () => {
-        this.$eventHub.$off(message, callback)
+        this.$mapEventHub.$off(message, callback)
       })
     },
     doSend(event, message) {
-      this.$eventHub.$emit(event, message)
+      this.$mapEventHub.$emit(event, message)
     },
   },
 }

@@ -15,10 +15,11 @@ Vue.use(ElementUI)
 Vue.config.productionTip = false
 
 // 加载olmap
-// import * as WhrdMap from '@basemap/olmap'
-// import '@basemap/olmap/dist/olmap.css'
+// import * as WhrdMap from 'basemap-olmap'
+// import 'basemap-olmap/dist/basemap-olmap.css'
 
-import * as WhrdMap from '../../map/index'
+import * as WhrdMap from '../../olmap/index'
+
 Vue.use(WhrdMap, { request: axios })
 
 new Vue({
